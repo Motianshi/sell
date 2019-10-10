@@ -1,0 +1,23 @@
+server:
+  servlet:
+    context-path: /
+  port: 8080
+
+#logging:
+#  pattern:
+#    console: "%d - %msg%n"
+#    file: C:\log\tomcat\sell.log
+#  #path: C:\log\tomcat
+#  #level: debug
+#
+#  #针对某个类设置日志级别
+#  level:
+#    com.anqi.sell.SellApplicationTests: debug
+
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql:///sell?characterEncoding=utf-8
