@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yu.scloud.baseframe.frame.dao.ProductInfoMapper">
+  <resultMap id="BaseResultMap" type="com.anqi.model.ProductInfo">
+    <id column="product_id" jdbcType="VARCHAR" property="product_id" />
+    <result column="product_name" jdbcType="VARCHAR" property="product_name" />
+    <result column="product_price" jdbcType="DECIMAL" property="product_price" />
+    <result column="product_stock" jdbcType="INTEGER" property="product_stock" />
+    <result column="product_desc" jdbcType="VARCHAR" property="product_desc" />
+    <result column="product_icon" jdbcType="VARCHAR" property="product_icon" />
+    <result column="category_type" jdbcType="INTEGER" property="category_type" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="create_time" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="update_time" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    product_id, product_name, product_price, product_stock, product_desc, product_icon, 
+    category_type, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from product_info
+    where product_id = #{product_id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from product_info
+    where product_id = #{product_id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.anqi.model.ProductInfo">
+    insert into product_info (product_id, product_name, product_price, 
+      product_stock, product_desc, product_icon, 
+      category_type, create_time, update_time
+      )
+    values (#{product_id,jdbcType=VARCHAR}, #{product_name,jdbcType=VARCHAR}, #{product_price,jdbcType=DECIMAL}, 
+      #{product_stock,jdbcType=INTEGER}, #{product_desc,jdbcType=VARCHAR}, #{product_icon,jdbcType=VARCHAR}, 
+      #{category_type,jdbcType=INTEGER}, #{create_time,jdbcType=TIMESTAMP}, #{update_time,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.anqi.model.ProductInfo">
+    insert into product_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="product_id != null">
+        product_id,
+      </if>
+      <if test="product_name != null">
+        product_name,
+      </if>
+      <if test="product_price != null">
+        product_price,
+      </if>
+      <if test="product_stock != null">
+        product_stock,
+      </if>
+      <if test="product_desc != null">
+        product_desc,
+      </if>
+      <if test="product_icon != null">
+        product_icon,
+      </if>
+      <if test="category_type != null">
+        category_type,
+      </if>
+      <if test="create_time != null">
+        create_time,
+      </if>
+      <if test="update_time != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="product_id != null">
+        #{product_id,jdbcType=VARCHAR},
+      </if>
+      <if test="product_name != null">
+        #{product_name,jdbcType=VARCHAR},
+      </if>
+      <if test="product_price != null">
+        #{product_price,jdbcType=DECIMAL},
+      </if>
+      <if test="product_stock != null">
+        #{product_stock,jdbcType=INTEGER},
+      </if>
+      <if test="product_desc != null">
+        #{product_desc,jdbcType=VARCHAR},
+      </if>
+      <if test="product_icon != null">
+        #{product_icon,jdbcType=VARCHAR},
+      </if>
+      <if test="category_type != null">
+        #{category_type,jdbcType=INTEGER},
+      </if>
+      <if test="create_time != null">
+        #{create_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="update_time != null">
+        #{update_time,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.anqi.model.ProductInfo">
+    update product_info
+    <set>
+      <if test="product_name != null">
+        product_name = #{product_name,jdbcType=VARCHAR},
+      </if>
+      <if test="product_price != null">
+        product_price = #{product_price,jdbcType=DECIMAL},
+      </if>
+      <if test="product_stock != null">
+        product_stock = #{product_stock,jdbcType=INTEGER},
+      </if>
+      <if test="product_desc != null">
+        product_desc = #{product_desc,jdbcType=VARCHAR},
+      </if>
+      <if test="product_icon != null">
+        product_icon = #{product_icon,jdbcType=VARCHAR},
+      </if>
+      <if test="category_type != null">
+        category_type = #{category_type,jdbcType=INTEGER},
+      </if>
+      <if test="create_time != null">
+        create_time = #{create_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="update_time != null">
+        update_time = #{update_time,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where product_id = #{product_id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.anqi.model.ProductInfo">
+    update product_info
+    set product_name = #{product_name,jdbcType=VARCHAR},
+      product_price = #{product_price,jdbcType=DECIMAL},
+      product_stock = #{product_stock,jdbcType=INTEGER},
+      product_desc = #{product_desc,jdbcType=VARCHAR},
+      product_icon = #{product_icon,jdbcType=VARCHAR},
+      category_type = #{category_type,jdbcType=INTEGER},
+      create_time = #{create_time,jdbcType=TIMESTAMP},
+      update_time = #{update_time,jdbcType=TIMESTAMP}
+    where product_id = #{product_id,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -20,4 +20,7 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: root
-    url: jdbc:mysql:///sell?characterEncoding=utf-8
+    url: jdbc:mysql://localhost:3306/sell?characterEncoding=utf-8
+
+mybatis:
+  mapper-locations: /mappers
