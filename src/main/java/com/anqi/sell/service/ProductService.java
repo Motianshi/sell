@@ -1,5 +1,6 @@
 package com.anqi.sell.service;
 
+import com.anqi.sell.dto.CartDTO;
 import com.anqi.sell.entity.ProductInfo;
 
 import java.util.List;
@@ -19,7 +20,9 @@ public interface ProductService {
     ProductInfo save(ProductInfo productInfo);
 
     //加库存
+    void increaseStock(List<CartDTO> cartDTOList);
 
     //减库存
+    void decreaseStock(List<CartDTO> cartDTOList);
 
 }

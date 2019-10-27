@@ -24,3 +24,9 @@ spring:
 
 mybatis:
   mapper-locations: /mappers
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
