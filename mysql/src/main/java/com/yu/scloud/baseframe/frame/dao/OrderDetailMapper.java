@@ -1,11 +1,11 @@
-package com.anqi.sell.dao;
+package com.yu.scloud.baseframe.frame.dao;
 
-import com.anqi.sell.entity.OrderDetail;
+import com.anqi.model.OrderDetail;
 
-import java.util.List;
-
-public interface OrderDetailDao {
+public interface OrderDetailMapper {
     int deleteByPrimaryKey(String detailId);
+
+    int insert(OrderDetail record);
 
     int insertSelective(OrderDetail record);
 
@@ -13,5 +13,5 @@ public interface OrderDetailDao {
 
     int updateByPrimaryKeySelective(OrderDetail record);
 
-    List<OrderDetail> findListByOrderId(String orderId);
+    int updateByPrimaryKey(OrderDetail record);
 }

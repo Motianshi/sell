@@ -30,7 +30,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public ProductInfo save(ProductInfo productInfo) {
+    public Integer save(ProductInfo productInfo) {
         return productInfoDao.save(productInfo);
     }
 

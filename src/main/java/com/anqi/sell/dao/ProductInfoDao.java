@@ -10,7 +10,7 @@ public interface ProductInfoDao {
 
     List<ProductInfo> findByProductStatus(Integer status);
 
-    ProductInfo save(ProductInfo productInfo);
+    Integer save(ProductInfo productInfo);
 
 
 }

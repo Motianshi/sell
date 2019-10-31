@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.anqi.sell.dao.ProductCategoryDao">
+  <resultMap id="BaseResultMap" type="com.anqi.sell.entity.ProductCategory">
+    <id column="category_id" jdbcType="INTEGER" property="categoryId" />
+    <result column="category_name" jdbcType="VARCHAR" property="categoryName" />
+    <result column="category_type" jdbcType="INTEGER" property="categoryType" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    category_id, category_name, category_type, create_time, update_time
+  </sql>
+  <select id="findById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from product_category
+    where category_id = #{categoryId,jdbcType=INTEGER}
+  </select>
+  <select id="findByCategoryType" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from product_category
+    where category_type = #{categoryType,jdbcType=INTEGER}
+  </select>
+  <select id="findByCategoryName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from product_category
+    where category_name = #{categoryName,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByCategoryType" parameterType="java.lang.Integer">
+    delete from product_category
+    where category_type = #{categoryType,jdbcType=INTEGER}
+  </delete>
+  <insert id="save" parameterType="com.anqi.sell.entity.ProductCategory">
+    insert into product_category
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+        category_id,
+      <if test="categoryName != null">
+        category_name,
+      </if>
+      <if test="categoryType != null">
+        category_type,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+        #{categoryId,jdbcType=INTEGER},
+      <if test="categoryName != null">
+        #{categoryName,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryType != null">
+        #{categoryType,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="update" parameterType="com.anqi.sell.entity.ProductCategory">
+    update product_category
+    <set>
+      <if test="categoryName != null">
+        category_name = #{categoryName,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryType != null">
+        category_type = #{categoryType,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where category_id = #{categoryId,jdbcType=INTEGER}
+  </update>
+
+  <select id="findListByTypeList" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from product_category
+    where category_type in
+    <foreach item="item" collection="list" separator="," open="(" close=")" index="">
+      #{item, jdbcType=INTEGER}
+    </foreach>
+  </select>
+
+</mapper>

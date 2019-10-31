@@ -17,7 +17,7 @@ public interface ProductService {
 
 //    List<ProductInfo> findAll(page);
 
-    ProductInfo save(ProductInfo productInfo);
+    Integer save(ProductInfo productInfo);
 
     //加库存
     void increaseStock(List<CartDTO> cartDTOList);

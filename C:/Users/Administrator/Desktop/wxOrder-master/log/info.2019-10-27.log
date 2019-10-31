@@ -1,0 +1,291 @@
+Starting SellApplication on localhost with PID 3193 (/Users/anqi/IdeaProjects/sell/target/classes started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+No MyBatis mapper was found in '[com.anqi.sell]' package. Please check your configuration.
+Tomcat initialized with port(s): 8080 (http)
+Initializing ProtocolHandler ["http-nio-8080"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.26]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 799 ms
+Initializing ExecutorService 'applicationTaskExecutor'
+Starting ProtocolHandler ["http-nio-8080"]
+Tomcat started on port(s): 8080 (http) with context path ''
+Started SellApplication in 1.639 seconds (JVM running for 2.012)
+Shutting down ExecutorService 'applicationTaskExecutor'
+Starting DaoTest on localhost with PID 3205 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+No MyBatis mapper was found in '[com.anqi.sell]' package. Please check your configuration.
+Initializing ExecutorService 'applicationTaskExecutor'
+Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [/Users/anqi/IdeaProjects/sell/target/classes/mappers/ProductCategoryMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [/Users/anqi/IdeaProjects/sell/target/classes/mappers/ProductCategoryMapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.anqi.model.ProductCategory'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.anqi.model.ProductCategory
+Shutting down ExecutorService 'applicationTaskExecutor'
+
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+Starting DaoTest on localhost with PID 3214 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+No MyBatis mapper was found in '[com.anqi.sell]' package. Please check your configuration.
+Initializing ExecutorService 'applicationTaskExecutor'
+Started DaoTest in 2.24 seconds (JVM running for 2.838)
+Shutting down ExecutorService 'applicationTaskExecutor'
+Starting DaoTest on localhost with PID 3234 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+No MyBatis mapper was found in '[com.anqi.sell]' package. Please check your configuration.
+Initializing ExecutorService 'applicationTaskExecutor'
+Started DaoTest in 2.235 seconds (JVM running for 2.87)
+Shutting down ExecutorService 'applicationTaskExecutor'
+Starting DaoTest on localhost with PID 3273 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Initializing ExecutorService 'applicationTaskExecutor'
+Started DaoTest in 2.395 seconds (JVM running for 3.091)
+{dataSource-1} inited
+Shutting down ExecutorService 'applicationTaskExecutor'
+{dataSource-1} closed
+Starting DaoTest on localhost with PID 3279 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Initializing ExecutorService 'applicationTaskExecutor'
+Started DaoTest in 2.217 seconds (JVM running for 2.868)
+{dataSource-1} inited
+Shutting down ExecutorService 'applicationTaskExecutor'
+{dataSource-1} closed
+Starting DaoTest on localhost with PID 3288 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+No MyBatis mapper was found in '[com.anqi.sell]' package. Please check your configuration.
+Initializing ExecutorService 'applicationTaskExecutor'
+Started DaoTest in 2.226 seconds (JVM running for 2.864)
+Shutting down ExecutorService 'applicationTaskExecutor'
+Starting DaoTest on localhost with PID 3296 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Initializing ExecutorService 'applicationTaskExecutor'
+Started DaoTest in 2.313 seconds (JVM running for 2.978)
+{dataSource-1} inited
+Shutting down ExecutorService 'applicationTaskExecutor'
+{dataSource-1} closed
+Starting DaoTest on localhost with PID 3308 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Initializing ExecutorService 'applicationTaskExecutor'
+Started DaoTest in 2.208 seconds (JVM running for 2.868)
+{dataSource-1} inited
+Shutting down ExecutorService 'applicationTaskExecutor'
+{dataSource-1} closed
+Starting DaoTest on localhost with PID 3317 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Initializing ExecutorService 'applicationTaskExecutor'
+Started DaoTest in 2.199 seconds (JVM running for 2.87)
+{dataSource-1} inited
+Shutting down ExecutorService 'applicationTaskExecutor'
+{dataSource-1} closed
+Starting DaoTest on localhost with PID 3333 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Initializing ExecutorService 'applicationTaskExecutor'
+Started DaoTest in 2.424 seconds (JVM running for 3.164)
+{dataSource-1} inited
+Shutting down ExecutorService 'applicationTaskExecutor'
+{dataSource-1} closed
+Starting DaoTest on localhost with PID 3342 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Initializing ExecutorService 'applicationTaskExecutor'
+Started DaoTest in 2.301 seconds (JVM running for 2.976)
+{dataSource-1} inited
+Shutting down ExecutorService 'applicationTaskExecutor'
+{dataSource-1} closed
+Starting DaoTest on localhost with PID 3353 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Initializing ExecutorService 'applicationTaskExecutor'
+Started DaoTest in 2.261 seconds (JVM running for 2.923)
+Shutting down ExecutorService 'applicationTaskExecutor'
+Starting DaoTest on localhost with PID 3361 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'orderDetailDao' defined in file [/Users/anqi/IdeaProjects/sell/target/classes/com/anqi/sell/dao/OrderDetailDao.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [/Users/anqi/IdeaProjects/sell/target/classes/mappers/ProductCategoryMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [/Users/anqi/IdeaProjects/sell/target/classes/mappers/ProductCategoryMapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving JdbcType. Cause: java.lang.IllegalArgumentException: No enum constant org.apache.ibatis.type.JdbcType.VAECHAR
+
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+Starting DaoTest on localhost with PID 3367 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Initializing ExecutorService 'applicationTaskExecutor'
+Started DaoTest in 2.306 seconds (JVM running for 2.979)
+{dataSource-1} inited
+Shutting down ExecutorService 'applicationTaskExecutor'
+{dataSource-1} closed
+Starting DaoTest on localhost with PID 3374 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Initializing ExecutorService 'applicationTaskExecutor'
+Started DaoTest in 2.22 seconds (JVM running for 2.879)
+{dataSource-1} inited
+Shutting down ExecutorService 'applicationTaskExecutor'
+{dataSource-1} closed
+Starting DaoTest on localhost with PID 3382 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Initializing ExecutorService 'applicationTaskExecutor'
+Started DaoTest in 2.258 seconds (JVM running for 2.923)
+{dataSource-1} inited
+Shutting down ExecutorService 'applicationTaskExecutor'
+{dataSource-1} closed
+Starting DaoTest on localhost with PID 3390 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Initializing ExecutorService 'applicationTaskExecutor'
+Started DaoTest in 2.404 seconds (JVM running for 3.083)
+{dataSource-1} inited
+Shutting down ExecutorService 'applicationTaskExecutor'
+{dataSource-1} closed
+Starting DaoTest on localhost with PID 3398 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Initializing ExecutorService 'applicationTaskExecutor'
+Started DaoTest in 2.255 seconds (JVM running for 2.941)
+{dataSource-1} inited
+Shutting down ExecutorService 'applicationTaskExecutor'
+{dataSource-1} closed
+Starting DaoTest on localhost with PID 3407 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Initializing ExecutorService 'applicationTaskExecutor'
+Started DaoTest in 2.231 seconds (JVM running for 2.891)
+{dataSource-1} inited
+Shutting down ExecutorService 'applicationTaskExecutor'
+{dataSource-1} closed
+Starting DaoTest on localhost with PID 3436 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Initializing ExecutorService 'applicationTaskExecutor'
+Started DaoTest in 2.359 seconds (JVM running for 3.069)
+Shutting down ExecutorService 'applicationTaskExecutor'
+Starting DaoTest on localhost with PID 3442 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Initializing ExecutorService 'applicationTaskExecutor'
+Started DaoTest in 2.185 seconds (JVM running for 2.844)
+Shutting down ExecutorService 'applicationTaskExecutor'
+Starting DaoTest on localhost with PID 3448 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Initializing ExecutorService 'applicationTaskExecutor'
+Started DaoTest in 2.245 seconds (JVM running for 2.906)
+Shutting down ExecutorService 'applicationTaskExecutor'
+Starting DaoTest on localhost with PID 3456 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Initializing ExecutorService 'applicationTaskExecutor'
+Started DaoTest in 2.229 seconds (JVM running for 2.882)
+Shutting down ExecutorService 'applicationTaskExecutor'
+Starting DaoTest on localhost with PID 3468 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Initializing ExecutorService 'applicationTaskExecutor'
+Started DaoTest in 2.232 seconds (JVM running for 2.884)
+{dataSource-1} inited
+Shutting down ExecutorService 'applicationTaskExecutor'
+{dataSource-1} closed
+Starting DaoTest on localhost with PID 3475 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Initializing ExecutorService 'applicationTaskExecutor'
+Started DaoTest in 2.229 seconds (JVM running for 2.913)
+{dataSource-1} inited
+Shutting down ExecutorService 'applicationTaskExecutor'
+{dataSource-1} closed
+Starting DaoTest on localhost with PID 3481 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Initializing ExecutorService 'applicationTaskExecutor'
+Started DaoTest in 2.375 seconds (JVM running for 3.08)
+{dataSource-1} inited
+Shutting down ExecutorService 'applicationTaskExecutor'
+{dataSource-1} closed
+Starting DaoTest on localhost with PID 3487 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Initializing ExecutorService 'applicationTaskExecutor'
+Started DaoTest in 2.235 seconds (JVM running for 2.904)
+{dataSource-1} inited
+Shutting down ExecutorService 'applicationTaskExecutor'
+{dataSource-1} closed
+Starting DaoTest on localhost with PID 3509 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Initializing ExecutorService 'applicationTaskExecutor'
+Started DaoTest in 2.257 seconds (JVM running for 2.914)
+{dataSource-1} inited
+Shutting down ExecutorService 'applicationTaskExecutor'
+{dataSource-1} closed
+Starting DaoTest on localhost with PID 3909 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'orderDetailDao' defined in file [/Users/anqi/IdeaProjects/sell/target/classes/com/anqi/sell/dao/OrderDetailDao.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [/Users/anqi/IdeaProjects/sell/target/classes/mappers/ProductInfoMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [/Users/anqi/IdeaProjects/sell/target/classes/mappers/ProductInfoMapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.anqi.model.ProductInfo'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.anqi.model.ProductInfo
+
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+Starting DaoTest on localhost with PID 3928 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Initializing ExecutorService 'applicationTaskExecutor'
+Started DaoTest in 2.474 seconds (JVM running for 3.215)
+Shutting down ExecutorService 'applicationTaskExecutor'
+Starting DaoTest on localhost with PID 3947 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Initializing ExecutorService 'applicationTaskExecutor'
+Started DaoTest in 2.336 seconds (JVM running for 3.011)
+Shutting down ExecutorService 'applicationTaskExecutor'
+Starting DaoTest on localhost with PID 3958 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Initializing ExecutorService 'applicationTaskExecutor'
+Started DaoTest in 2.235 seconds (JVM running for 2.942)
+{dataSource-1} inited
+Shutting down ExecutorService 'applicationTaskExecutor'
+{dataSource-1} closed
+Starting DaoTest on localhost with PID 3984 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Initializing ExecutorService 'applicationTaskExecutor'
+Started DaoTest in 2.368 seconds (JVM running for 3.062)
+{dataSource-1} inited
+Shutting down ExecutorService 'applicationTaskExecutor'
+{dataSource-1} closed
+Starting DaoTest on localhost with PID 3999 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Initializing ExecutorService 'applicationTaskExecutor'
+Started DaoTest in 2.306 seconds (JVM running for 2.972)
+{dataSource-1} inited
+Shutting down ExecutorService 'applicationTaskExecutor'
+{dataSource-1} closed
+Starting DaoTest on localhost with PID 4012 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Initializing ExecutorService 'applicationTaskExecutor'
+Started DaoTest in 2.201 seconds (JVM running for 2.861)
+{dataSource-1} inited
+Shutting down ExecutorService 'applicationTaskExecutor'
+{dataSource-1} closed
+Starting DaoTest on localhost with PID 4017 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Initializing ExecutorService 'applicationTaskExecutor'
+Started DaoTest in 2.225 seconds (JVM running for 2.897)
+{dataSource-1} inited
+Shutting down ExecutorService 'applicationTaskExecutor'
+{dataSource-1} closed
+Starting DaoTest on localhost with PID 4026 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Initializing ExecutorService 'applicationTaskExecutor'
+Started DaoTest in 2.263 seconds (JVM running for 2.952)
+{dataSource-1} inited
+Shutting down ExecutorService 'applicationTaskExecutor'
+{dataSource-1} closed
+Starting DaoTest on localhost with PID 4053 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Initializing ExecutorService 'applicationTaskExecutor'
+Started DaoTest in 2.291 seconds (JVM running for 2.99)
+{dataSource-1} inited
+Shutting down ExecutorService 'applicationTaskExecutor'
+{dataSource-1} closed
+Starting DaoTest on localhost with PID 4061 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Initializing ExecutorService 'applicationTaskExecutor'
+Started DaoTest in 2.246 seconds (JVM running for 2.927)
+{dataSource-1} inited
+Shutting down ExecutorService 'applicationTaskExecutor'
+{dataSource-1} closed
+Starting DaoTest on localhost with PID 4072 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Initializing ExecutorService 'applicationTaskExecutor'
+Started DaoTest in 2.227 seconds (JVM running for 2.888)
+{dataSource-1} inited
+Shutting down ExecutorService 'applicationTaskExecutor'
+{dataSource-1} closed
+Starting DaoTest on localhost with PID 4082 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Initializing ExecutorService 'applicationTaskExecutor'
+Started DaoTest in 2.234 seconds (JVM running for 2.867)
+{dataSource-1} inited
+Shutting down ExecutorService 'applicationTaskExecutor'
+{dataSource-1} closed
+Starting DaoTest on localhost with PID 4090 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Initializing ExecutorService 'applicationTaskExecutor'
+Started DaoTest in 2.232 seconds (JVM running for 2.91)
+{dataSource-1} inited
+Shutting down ExecutorService 'applicationTaskExecutor'
+{dataSource-1} closed

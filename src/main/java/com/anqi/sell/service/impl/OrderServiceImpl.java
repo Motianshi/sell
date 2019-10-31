@@ -1,6 +1,5 @@
 package com.anqi.sell.service.impl;
 
-import com.anqi.sell.dao.OrderDao;
 import com.anqi.sell.dao.OrderDetailDao;
 import com.anqi.sell.dao.OrderMasterDao;
 import com.anqi.sell.dto.CartDTO;
@@ -10,7 +9,6 @@ import com.anqi.sell.entity.OrderMaster;
 import com.anqi.sell.entity.ProductInfo;
 import com.anqi.sell.enums.OrderStatusEnum;
 import com.anqi.sell.enums.PayStatusEnum;
-import com.anqi.sell.enums.ProductResultEnum;
 import com.anqi.sell.enums.ResultEnum;
 import com.anqi.sell.exception.SellException;
 import com.anqi.sell.service.OrderService;
@@ -68,7 +66,7 @@ public class OrderServiceImpl implements OrderService {
             //设置 productIcon id name 和 price
             orderDetail.setDetailId(detailId);
             orderDetail.setOrderId(orderId);
-            orderDetailDao.save(orderDetail);
+            orderDetailDao.insertSelective(orderDetail);
 
         }
 
@@ -79,7 +77,7 @@ public class OrderServiceImpl implements OrderService {
         orderMaster.setOrderAmount(orderAmount);
         orderMaster.setOrderStatus(OrderStatusEnum.NEW.getCode());
         orderMaster.setPayStatus(PayStatusEnum.WAIT.getCode());
-        orderMasterDao.save(orderMaster);
+        orderMasterDao.insertSelective(orderMaster);
 
         //4. 扣减库存
         List<CartDTO> cartDTOList = new ArrayList<>();
@@ -94,14 +92,14 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public OrderDTO findOne(String orderId) {
 
-        OrderMaster orderMaster = orderorderMasterDao.findOne(orderId);
+        OrderMaster orderMaster = orderMasterDao.selectByPrimaryKey(orderId);
         if (null == orderMaster) {
             throw new SellException(ResultEnum.ORDER_NOT_EXIST);
         }
 
-        List<OrderDetail> orderDetailList = orderDetailDao.findByOrderId(orderId);
+        List<OrderDetail> orderDetailList = orderDetailDao.findListByOrderId(orderId);
         if (CollectionUtils.isEmpty(orderDetailList)) {
-            throw new SellException(ResultEnum.ORDERDETAIL_NOT_EXIST)
+            throw new SellException(ResultEnum.ORDERDETAIL_NOT_EXIST);
         }
 
         OrderDTO orderDTO = new OrderDTO();
