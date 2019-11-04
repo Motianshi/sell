@@ -14,7 +14,9 @@ import com.anqi.sell.exception.SellException;
 import com.anqi.sell.service.OrderService;
 import com.anqi.sell.service.ProductService;
 import com.anqi.sell.utils.UUIDUtil;
-import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.sun.org.apache.bcel.internal.generic.RET;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -110,8 +112,19 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public Page<OrderDTO> findList(String buyerOpenid, int pageNo, int pageSize) {
-        return null;
+    public PageInfo<OrderDTO> findList(String buyerOpenid, int pageNo, int pageSize) {
+        PageHelper.startPage(pageNo, pageSize);
+        List<OrderMaster> orderMasterList = orderMasterDao.findByBuyerId(buyerOpenid);
+        System.out.println(orderMasterList);
+
+        /** 将 OrderMaster 的 list 转化为 OrderDTO */
+        List<OrderDTO> orderDTOS = orderMasterList.stream().map(e -> {
+            OrderDTO orderDTO = new OrderDTO();
+            BeanUtils.copyProperties(e, orderDTO);
+            return orderDTO;
+        }).collect(Collectors.toList());
+
+        return new PageInfo<OrderDTO>(orderDTOS);
     }
 
     @Override
@@ -130,7 +143,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public Page<OrderDTO> findList(int pageNo, int pageSize) {
+    public PageInfo<OrderDTO> findList(int pageNo, int pageSize) {
         return null;
     }
 }

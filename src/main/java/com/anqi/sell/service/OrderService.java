@@ -1,7 +1,7 @@
 package com.anqi.sell.service;
 
 import com.anqi.sell.dto.OrderDTO;
-import com.github.pagehelper.Page;
+import com.github.pagehelper.PageInfo;
 
 public interface OrderService {
     /** 创建订单. */
@@ -11,7 +11,7 @@ public interface OrderService {
     OrderDTO findOne(String orderId);
 
     /** 查询订单列表. */
-    Page<OrderDTO> findList(String buyerOpenid, int pageNo, int pageSize);
+    PageInfo<OrderDTO> findList(String buyerOpenid, int pageNo, int pageSize);
 
     /** 取消订单. */
     OrderDTO cancel(OrderDTO orderDTO);
@@ -23,5 +23,5 @@ public interface OrderService {
     OrderDTO paid(OrderDTO orderDTO);
 
     /** 查询订单列表. */
-    Page<OrderDTO> findList(int pageNo, int pageSize);
+    PageInfo<OrderDTO> findList(int pageNo, int pageSize);
 }

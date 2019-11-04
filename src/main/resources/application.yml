@@ -28,7 +28,6 @@ spring:
 mybatis:
   mapper-locations: classpath:mapper/*.xml
 
-
 pagehelper:
   helperDialect: mysql
   reasonable: true

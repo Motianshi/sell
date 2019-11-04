@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.yu.scloud.baseframe.frame.dao.OrderDetailMapper">
-  <resultMap id="BaseResultMap" type="com.anqi.sell.dao.OrderDetailDao">
+<mapper namespace="com.anqi.sell.dao.OrderDetailDao">
+  <resultMap id="BaseResultMap" type="com.anqi.sell.entity.OrderDetail">
     <id column="detail_id" jdbcType="VARCHAR" property="detailId" />
     <result column="order_id" jdbcType="VARCHAR" property="orderId" />
     <result column="product_id" jdbcType="VARCHAR" property="productId" />
@@ -13,14 +13,21 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
   </resultMap>
   <sql id="Base_Column_List">
-    detail_id, order_id, product_id, product_name, product_price, product_quantity, product_icon, 
+    detail_id, order_id, product_id, product_name, product_price, product_quantity, product_icon,
     create_time, update_time
   </sql>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from order_detail
     where detail_id = #{detailId,jdbcType=VARCHAR}
+  </select>
+  <select id="findListByOrderId" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from order_detail
+    where order_id = #{orderId,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from order_detail
@@ -114,11 +121,5 @@
     where detail_id = #{detailId,jdbcType=VARCHAR}
   </update>
 
-  <select id="insertSelective" resultMap="com.anqi.sell.entity.OrderDetail">
-    select
-    <include refid="Base_Column_List"/>
-    from order_detail
-    where order_id = #{orderId,jdbcType=VARCHAR}
-  </select>
 
 </mapper>
