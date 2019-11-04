@@ -16,7 +16,8 @@ import com.anqi.sell.service.ProductService;
 import com.anqi.sell.utils.UUIDUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.sun.org.apache.bcel.internal.generic.RET;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,6 +32,8 @@ import java.util.stream.Collectors;
 
 @Service
 public class OrderServiceImpl implements OrderService {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(OrderServiceImpl.class);
 
     @Autowired
     private ProductService productService;
@@ -128,8 +131,35 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    @Transactional
     public OrderDTO cancel(OrderDTO orderDTO) {
-        return null;
+        //判断订单状态
+        if (!orderDTO.getOrderStatus().equals(OrderStatusEnum.NEW.getCode())) {
+            LOGGER.error("【取消订单】订单状态不正确，orderId={}, orderStatus={}",orderDTO.getOrderId(), orderDTO.getOrderStatus());
+            throw new SellException(ResultEnum.ORDER_STATUS_ERROR);
+        }
+        //修改订单状态
+        int updateRow = orderMasterDao.changeOrderStatus(orderDTO.getOrderId(), OrderStatusEnum.CANCEL.getCode());
+        if (updateRow != 1) {
+            LOGGER.error("【取消订单】订单更新失败，oderDTO={}",orderDTO);
+            throw new SellException(ResultEnum.ORDER_UPDATE_ERROR);
+        }
+        //退还库存
+        if (CollectionUtils.isEmpty(orderDTO.getOrderDetailList())) {
+            LOGGER.error("【取消订单】订单中无商品详情，orderDTO={}",orderDTO);
+            throw new SellException(ResultEnum.ORDER_DETAIL_EMPTY);
+        }
+        List<CartDTO> cartDTOS = orderDTO.getOrderDetailList().stream()
+                .map(e -> new CartDTO(e.getProductId(), e.getProductQuantity()))
+                .collect(Collectors.toList());
+        productService.increaseStock(cartDTOS);
+
+        //如果已支付退款
+        if (orderDTO.getPayStatus().equals(PayStatusEnum.SUCCESS.getCode())) {
+            //todo 6-9
+        }
+
+        return orderDTO;
     }
 
     @Override

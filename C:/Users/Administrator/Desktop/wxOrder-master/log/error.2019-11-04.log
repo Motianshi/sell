@@ -1,0 +1,6 @@
+【取消订单】订单状态不正确，orderId=1, orderStatus=1
+【取消订单】订单中无商品详情，orderDTO=OrderDTO(orderId=1, buyerName=anqi, buyerPhone=15503613208, buyerAddress=澳尼路, buyerOpenid=112, orderAmount=996, orderStatus=0, payStatus=0, createTime=null, updateTime=null, orderDetailList=null)
+【增加库存】增加库存失败,商品不存在,cartDTO=CartDTO(productId=null, productQuantity=null)
+【增加库存】增加库存失败,商品不存在,cartDTO=CartDTO(productId=null, productQuantity=null)
+【增加库存】增加库存失败,商品不存在,cartDTO=CartDTO(productId=null, productQuantity=null)
+【增加库存】增加库存失败,商品不存在,cartDTO=CartDTO(productId=null, productQuantity=null)

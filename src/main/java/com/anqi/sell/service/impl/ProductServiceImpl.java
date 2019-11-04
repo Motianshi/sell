@@ -7,6 +7,8 @@ import com.anqi.sell.enums.ProductStatusEnum;
 import com.anqi.sell.enums.ResultEnum;
 import com.anqi.sell.exception.SellException;
 import com.anqi.sell.service.ProductService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,6 +17,8 @@ import java.util.List;
 
 @Service
 public class ProductServiceImpl implements ProductService {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(ProductServiceImpl.class);
 
     @Autowired
     private ProductInfoDao productInfoDao;
@@ -35,8 +39,17 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    @Transactional
     public void increaseStock(List<CartDTO> cartDTOList) {
-
+        for (CartDTO cartDTO : cartDTOList) {
+            ProductInfo productInfo = productInfoDao.findById(cartDTO.getProductId());
+            if (null == productInfo) {
+                LOGGER.error("【增加库存】增加库存失败,商品不存在,cartDTO={}",cartDTO);
+                throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
+            }
+            Integer result = productInfo.getProductStock() + cartDTO.getProductQuantity();
+            productInfoDao.updateStock(productInfo.getProductId(), result);
+        }
     }
 
     @Override
@@ -45,16 +58,14 @@ public class ProductServiceImpl implements ProductService {
         for (CartDTO cartDTO : cartDTOList) {
             ProductInfo productInfo = productInfoDao.findById(cartDTO.getProductId());
             if (null == productInfo) {
+                LOGGER.error("【减少库存】减少库存失败,商品不存在,cartDTO={}",cartDTO);
                 throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
             }
             Integer result = productInfo.getProductStock() - cartDTO.getProductQuantity();
             if (0 > result) {
                 throw new SellException(ResultEnum.PRODUCT_STOCK_ERROR);
             }
-
-            productInfo.setProductStock(result);
-
-            productInfoDao.save(productInfo);
+            productInfoDao.updateStock(productInfo.getProductId(), result);
         }
     }
 }

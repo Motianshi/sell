@@ -1,6 +1,7 @@
 package com.anqi.sell.dao;
 
 import com.anqi.sell.entity.OrderMaster;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -14,4 +15,6 @@ public interface OrderMasterDao {
     int updateByPrimaryKeySelective(OrderMaster record);
 
     List<OrderMaster> findByBuyerId(String buyerOpenId);
+
+    int changeOrderStatus(@Param("orderId") String orderId, @Param("orderStatus") int orderStatus);
 }

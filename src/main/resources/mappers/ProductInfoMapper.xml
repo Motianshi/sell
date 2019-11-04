@@ -10,13 +10,14 @@
         <result column="product_stock" jdbcType="INTEGER" property="productStock" />
         <result column="product_description" jdbcType="VARCHAR" property="productDescription" />
         <result column="product_icon" jdbcType="VARCHAR" property="productIcon" />
+        <result column="product_status" jdbcType="INTEGER" property="productStatus" />
         <result column="category_type" jdbcType="INTEGER" property="categoryType" />
         <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
         <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     </resultMap>
 
     <sql id="Base_Column_List">
-    product_id, product_name, product_price, product_stock, product_description, product_icon,
+    product_id, product_name, product_price, product_stock, product_description, product_icon, product_status,
     category_type, create_time, update_time
     </sql>
     <select id="findById" parameterType="java.lang.String" resultMap="BaseResultMap">
@@ -32,6 +33,12 @@
         from product_info
         where product_status = #{productStatus,jdbcType=VARCHAR}
     </select>
+
+    <update id="updateStock">
+        update product_info
+        set product_stock = #{productStock,jdbcType=INTEGER}
+        where product_id = #{productId,jdbcType=VARCHAR}
+    </update>
 
     <insert id="save" parameterType="com.anqi.sell.entity.ProductInfo">
         insert into product_info

@@ -1,6 +1,7 @@
 package com.anqi.sell.dao;
 
 import com.anqi.sell.entity.ProductInfo;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -12,5 +13,6 @@ public interface ProductInfoDao {
 
     Integer save(ProductInfo productInfo);
 
+    Integer updateStock(@Param("productId") String productId, @Param("productStock") int productStock);
 
 }
