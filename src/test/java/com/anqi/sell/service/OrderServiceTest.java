@@ -38,7 +38,7 @@ public class OrderServiceTest {
         orderDTO.setBuyerPhone("15503613208");
         orderDTO.setBuyerOpenid("112");
         orderDTO.setOrderAmount(new BigDecimal("996"));
-        orderDTO.setOrderStatus(0);
+        orderDTO.setOrderStatus(2);
         orderDTO.setPayStatus(0);
         List<OrderDetail> orderDetails = new ArrayList<>();
         OrderDetail orderDetail = new OrderDetail();
@@ -64,6 +64,21 @@ public class OrderServiceTest {
 
         orderDTO.setOrderDetailList(orderDetails);
         orderService.cancel(orderDTO);
+    }
+
+
+    @Test
+    public void testFinish() {
+        OrderDTO orderDTO = new OrderDTO();
+        orderDTO.setOrderId("1");
+        orderService.finish(orderDTO);
+    }
+
+    @Test
+    public void testPaid(){
+        OrderDTO orderDTO = new OrderDTO();
+        orderDTO.setOrderId("1");
+        orderService.paid(orderDTO);
     }
 
 }

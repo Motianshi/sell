@@ -1,0 +1,56 @@
+Starting OrderServiceTest on localhost with PID 25989 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Initializing ExecutorService 'applicationTaskExecutor'
+Started OrderServiceTest in 2.929 seconds (JVM running for 3.831)
+{dataSource-1} inited
+Shutting down ExecutorService 'applicationTaskExecutor'
+{dataSource-1} closed
+Starting OrderServiceTest on localhost with PID 26034 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Initializing ExecutorService 'applicationTaskExecutor'
+Started OrderServiceTest in 2.49 seconds (JVM running for 3.156)
+{dataSource-1} inited
+Shutting down ExecutorService 'applicationTaskExecutor'
+{dataSource-1} closed
+Starting OrderServiceTest on localhost with PID 26277 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Initializing ExecutorService 'applicationTaskExecutor'
+Started OrderServiceTest in 2.592 seconds (JVM running for 3.328)
+{dataSource-1} inited
+Shutting down ExecutorService 'applicationTaskExecutor'
+{dataSource-1} closed
+Starting OrderServiceTest on localhost with PID 26297 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Initializing ExecutorService 'applicationTaskExecutor'
+Started OrderServiceTest in 2.563 seconds (JVM running for 3.321)
+{dataSource-1} inited
+Shutting down ExecutorService 'applicationTaskExecutor'
+{dataSource-1} closed
+Starting OrderServiceTest on localhost with PID 26503 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Initializing ExecutorService 'applicationTaskExecutor'
+Started OrderServiceTest in 2.554 seconds (JVM running for 3.298)
+{dataSource-1} inited
+Shutting down ExecutorService 'applicationTaskExecutor'
+{dataSource-1} closed
+Starting OrderServiceTest on localhost with PID 26553 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Initializing ExecutorService 'applicationTaskExecutor'
+Started OrderServiceTest in 2.837 seconds (JVM running for 4.173)
+{dataSource-1} inited
+Shutting down ExecutorService 'applicationTaskExecutor'
+{dataSource-1} closed
+Starting OrderServiceTest on localhost with PID 26561 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Initializing ExecutorService 'applicationTaskExecutor'
+Started OrderServiceTest in 2.905 seconds (JVM running for 3.812)
+{dataSource-1} inited
+Shutting down ExecutorService 'applicationTaskExecutor'
+{dataSource-1} closed
+Starting OrderServiceTest on localhost with PID 26583 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Initializing ExecutorService 'applicationTaskExecutor'
+Started OrderServiceTest in 2.461 seconds (JVM running for 3.15)
+{dataSource-1} inited
+Shutting down ExecutorService 'applicationTaskExecutor'
+{dataSource-1} closed

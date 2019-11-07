@@ -36,6 +36,12 @@
     set order_status = #{orderStatus,jdbcType=INTEGER}
     where order_id = #{orderId,jdbcType=VARCHAR}
   </update>
+  <update id="changePayStatus">
+    update order_master
+    set pay_status = #{payStatus,jdbcType=INTEGER}
+    where order_id = #{orderId,jdbcType=VARCHAR}
+  </update>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from order_master
     where order_id = #{orderId,jdbcType=VARCHAR}

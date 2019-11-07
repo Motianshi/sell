@@ -156,20 +156,53 @@ public class OrderServiceImpl implements OrderService {
 
         //如果已支付退款
         if (orderDTO.getPayStatus().equals(PayStatusEnum.SUCCESS.getCode())) {
-            //todo 6-9
+            //todo 6-11
         }
 
+        orderDTO.setOrderStatus(OrderStatusEnum.CANCEL.getCode());
         return orderDTO;
     }
 
     @Override
     public OrderDTO finish(OrderDTO orderDTO) {
-        return null;
+        //判断订单状态
+        if (!orderDTO.getOrderStatus().equals(OrderStatusEnum.NEW.getCode())) {
+            LOGGER.error("【完结订单】订单状态不正确，orderId={}, orderStatus={}",orderDTO.getOrderId(), orderDTO.getOrderStatus());
+            throw new SellException(ResultEnum.ORDER_STATUS_ERROR);
+        }
+
+        //修改订单状态
+        int rows = orderMasterDao.changeOrderStatus(orderDTO.getOrderId(), OrderStatusEnum.FINISHED.getCode());
+        if (rows != 1) {
+            LOGGER.error("【完结订单】订单更新失败，oderDTO={}",orderDTO);
+            throw new SellException(ResultEnum.ORDER_UPDATE_ERROR);
+        }
+
+        orderDTO.setOrderStatus(OrderStatusEnum.FINISHED.getCode());
+        return orderDTO;
     }
 
     @Override
     public OrderDTO paid(OrderDTO orderDTO) {
-        return null;
+        //判断订单状态
+        if (!orderDTO.getOrderStatus().equals(OrderStatusEnum.NEW.getCode())) {
+            LOGGER.error("【订单支付】订单状态不正确，orderId={}, orderStatus={}",orderDTO.getOrderId(), orderDTO.getOrderStatus());
+            throw new SellException(ResultEnum.ORDER_STATUS_ERROR);
+        }
+        //判断支付状态
+        if (!orderDTO.getPayStatus().equals(PayStatusEnum.WAIT.getCode())) {
+            LOGGER.error("【订单支付】支付状态不正常，orderDTO={}",orderDTO);
+        }
+        //修改支付状态
+        int row = orderMasterDao.changePayStatus(orderDTO.getOrderId(), PayStatusEnum.SUCCESS.getCode());
+
+        if (1 != row) {
+            LOGGER.error("【订单支付】支付状态更新失败，oderDTO={}",orderDTO);
+            throw new SellException(ResultEnum.UPDATE_PAY_STATUS_ERROR);
+        }
+
+        orderDTO.setPayStatus(PayStatusEnum.SUCCESS.getCode());
+        return orderDTO;
     }
 
     @Override
