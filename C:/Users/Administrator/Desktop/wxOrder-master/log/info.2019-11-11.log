@@ -1,0 +1,98 @@
+Starting DaoTest on localhost with PID 35183 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Skipping MapperFactoryBean with name 'orderDetailDao' and 'com.anqi.sell.dao.OrderDetailDao' mapperInterface. Bean already defined with the same name!
+Skipping MapperFactoryBean with name 'orderMasterDao' and 'com.anqi.sell.dao.OrderMasterDao' mapperInterface. Bean already defined with the same name!
+Skipping MapperFactoryBean with name 'productCategoryDao' and 'com.anqi.sell.dao.ProductCategoryDao' mapperInterface. Bean already defined with the same name!
+Skipping MapperFactoryBean with name 'productInfoDao' and 'com.anqi.sell.dao.ProductInfoDao' mapperInterface. Bean already defined with the same name!
+No MyBatis mapper was found in '[com.anqi.sell.dao]' package. Please check your configuration.
+Initializing ExecutorService 'applicationTaskExecutor'
+Started DaoTest in 2.835 seconds (JVM running for 3.679)
+{dataSource-1} inited
+Shutting down ExecutorService 'applicationTaskExecutor'
+{dataSource-1} closed
+Starting DaoTest on localhost with PID 35298 (started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Skipping MapperFactoryBean with name 'orderDetailDao' and 'com.anqi.sell.dao.OrderDetailDao' mapperInterface. Bean already defined with the same name!
+Skipping MapperFactoryBean with name 'orderMasterDao' and 'com.anqi.sell.dao.OrderMasterDao' mapperInterface. Bean already defined with the same name!
+Skipping MapperFactoryBean with name 'productCategoryDao' and 'com.anqi.sell.dao.ProductCategoryDao' mapperInterface. Bean already defined with the same name!
+Skipping MapperFactoryBean with name 'productInfoDao' and 'com.anqi.sell.dao.ProductInfoDao' mapperInterface. Bean already defined with the same name!
+No MyBatis mapper was found in '[com.anqi.sell.dao]' package. Please check your configuration.
+Initializing ExecutorService 'applicationTaskExecutor'
+Started DaoTest in 2.676 seconds (JVM running for 3.457)
+{dataSource-1} inited
+Shutting down ExecutorService 'applicationTaskExecutor'
+{dataSource-1} closed
+Starting SellApplication on localhost with PID 35308 (/Users/anqi/IdeaProjects/sell/target/classes started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Tomcat initialized with port(s): 8080 (http)
+Initializing ProtocolHandler ["http-nio-8080"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.26]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 990 ms
+Initializing ExecutorService 'applicationTaskExecutor'
+Starting ProtocolHandler ["http-nio-8080"]
+Tomcat started on port(s): 8080 (http) with context path '/sell'
+Started SellApplication in 1.956 seconds (JVM running for 2.355)
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 7 ms
+{dataSource-1} inited
+Shutting down ExecutorService 'applicationTaskExecutor'
+{dataSource-1} closed
+Starting SellApplication on localhost with PID 35490 (/Users/anqi/IdeaProjects/sell/target/classes started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Tomcat initialized with port(s): 8080 (http)
+Initializing ProtocolHandler ["http-nio-8080"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.26]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 1026 ms
+Initializing ExecutorService 'applicationTaskExecutor'
+Starting ProtocolHandler ["http-nio-8080"]
+Tomcat started on port(s): 8080 (http) with context path '/sell'
+Started SellApplication in 2.25 seconds (JVM running for 2.675)
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 7 ms
+Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required String parameter 'openid' is not present]
+{dataSource-1} inited
+Shutting down ExecutorService 'applicationTaskExecutor'
+{dataSource-1} closed
+Starting SellApplication on localhost with PID 35683 (/Users/anqi/IdeaProjects/sell/target/classes started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Tomcat initialized with port(s): 8080 (http)
+Initializing ProtocolHandler ["http-nio-8080"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.26]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 1038 ms
+Initializing ExecutorService 'applicationTaskExecutor'
+Starting ProtocolHandler ["http-nio-8080"]
+Tomcat started on port(s): 8080 (http) with context path '/sell'
+Started SellApplication in 2.072 seconds (JVM running for 2.505)
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 6 ms
+Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required String parameter 'openid' is not present]
+{dataSource-1} inited
+Shutting down ExecutorService 'applicationTaskExecutor'
+{dataSource-1} closed
+Starting SellApplication on localhost with PID 35784 (/Users/anqi/IdeaProjects/sell/target/classes started by anqi in /Users/anqi/IdeaProjects/sell)
+No active profile set, falling back to default profiles: default
+Tomcat initialized with port(s): 8080 (http)
+Initializing ProtocolHandler ["http-nio-8080"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.26]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 906 ms
+Initializing ExecutorService 'applicationTaskExecutor'
+Starting ProtocolHandler ["http-nio-8080"]
+Tomcat started on port(s): 8080 (http) with context path '/sell'
+Started SellApplication in 1.866 seconds (JVM running for 2.269)
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 7 ms
+{dataSource-1} inited
+Shutting down ExecutorService 'applicationTaskExecutor'
+{dataSource-1} closed

@@ -25,8 +25,8 @@ public class OrderServiceTest {
 
     @Test
     public void testFindByOpenId(){
-        PageInfo<OrderDTO> list = orderService.findList("112", 0, 2);
-        list.getList().forEach(e -> System.out.println(e));
+        List<OrderDTO> list = orderService.findList("112", 0, 2);
+        list.forEach(e -> System.out.println(e));
     }
 
     @Test

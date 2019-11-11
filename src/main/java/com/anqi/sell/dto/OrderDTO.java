@@ -1,5 +1,6 @@
 package com.anqi.sell.dto;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.anqi.sell.enums.OrderStatusEnum;
 import com.anqi.sell.enums.PayStatusEnum;
 import com.anqi.sell.entity.OrderDetail;
@@ -31,17 +32,23 @@ public class OrderDTO {
     private BigDecimal orderAmount;
 
     /** 订单状态, 默认为0新下单. */
-    private Integer orderStatus = OrderStatusEnum.NEW.getCode();
+    private Integer orderStatus;
 
     /** 支付状态, 默认为0未支付. */
-    private Integer payStatus = PayStatusEnum.WAIT.getCode();
+    private Integer payStatus ;
 
     /** 创建时间. */
+    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
 
+    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     /** 更新时间. */
     private Date updateTime;
 
     private List<OrderDetail> orderDetailList;
 
+    public OrderDTO() {
+        orderStatus =  OrderStatusEnum.NEW.getCode();
+        payStatus = PayStatusEnum.WAIT.getCode();
+    }
 }

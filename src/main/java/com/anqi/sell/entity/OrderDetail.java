@@ -3,6 +3,7 @@ package com.anqi.sell.entity;
 import lombok.Data;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 @Data
 public class OrderDetail {
@@ -26,4 +27,10 @@ public class OrderDetail {
 
     /** 商品小图. */
     private String productIcon;
+
+    /** 创建时间. */
+    private Date createTime;
+
+    /** 更新时间. */
+    private Date updateTime;
 }

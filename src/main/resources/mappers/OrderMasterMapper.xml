@@ -46,7 +46,7 @@
     delete from order_master
     where order_id = #{orderId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insertSelective" parameterType="com.anqi.sell.entity.OrderMaster">
+  <insert id="insertSelective" parameterType="com.anqi.sell.entity.OrderMaster" useGeneratedKeys="true" keyProperty="orderId">
     insert into order_master
     <trim prefix="(" suffix=")" suffixOverrides=",">
         order_id,

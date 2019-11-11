@@ -7,6 +7,11 @@ import java.util.List;
 
 public interface ProductService {
 
+    /**
+     * 查询商品
+     * @param productId
+     * @return
+     */
     ProductInfo findById(String productId);
 
     /**
@@ -15,14 +20,22 @@ public interface ProductService {
      */
     List<ProductInfo> findUpAll();
 
-//    List<ProductInfo> findAll(page);
-
+    /**
+     * 保存商品信息
+     * @param productInfo
+     */
     Integer save(ProductInfo productInfo);
 
-    //加库存
+    /**
+     * 增加存款
+     * @param cartDTOList
+     */
     void increaseStock(List<CartDTO> cartDTOList);
 
-    //减库存
+    /**
+     * 扣减库存
+     * @param cartDTOList
+     */
     void decreaseStock(List<CartDTO> cartDTOList);
 
 }

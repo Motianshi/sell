@@ -3,6 +3,8 @@ package com.anqi.sell.service;
 import com.anqi.sell.dto.OrderDTO;
 import com.github.pagehelper.PageInfo;
 
+import java.util.List;
+
 public interface OrderService {
     /** 创建订单. */
     OrderDTO create(OrderDTO orderDTO);
@@ -11,7 +13,7 @@ public interface OrderService {
     OrderDTO findOne(String orderId);
 
     /** 查询订单列表. */
-    PageInfo<OrderDTO> findList(String buyerOpenid, int pageNo, int pageSize);
+    List<OrderDTO> findList(String buyerOpenid, int pageNo, int pageSize);
 
     /** 取消订单. */
     OrderDTO cancel(OrderDTO orderDTO);

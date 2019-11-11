@@ -14,7 +14,6 @@ import com.anqi.sell.exception.SellException;
 import com.anqi.sell.service.OrderService;
 import com.anqi.sell.service.ProductService;
 import com.anqi.sell.utils.UUIDUtil;
-import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -51,7 +50,6 @@ public class OrderServiceImpl implements OrderService {
         BigDecimal orderAmount = new BigDecimal(BigInteger.ZERO);
 
         String orderId = UUIDUtil.getUUID();
-        String detailId = UUIDUtil.getUUID();
 
         //1. 查询商品 (数量,价格)
         for (OrderDetail orderDetail : orderDTO.getOrderDetailList()) {
@@ -62,14 +60,14 @@ public class OrderServiceImpl implements OrderService {
 
             //2. 计算总价
             //orderDetail.getProductPrice() * orderDetail.getProductQuantity()
-            productInfo.getProductPrice()
+            orderAmount = productInfo.getProductPrice()
                     .multiply(new BigDecimal(orderDetail.getProductQuantity()))
                     .add(orderAmount);
 
             //3. 写入订单详情
-            BeanUtils.copyProperties(orderDetail, productInfo);
+            BeanUtils.copyProperties(productInfo,orderDetail);
             //设置 productIcon id name 和 price
-            orderDetail.setDetailId(detailId);
+            orderDetail.setDetailId(UUIDUtil.getUUID());
             orderDetail.setOrderId(orderId);
             orderDetailDao.insertSelective(orderDetail);
 
@@ -77,8 +75,8 @@ public class OrderServiceImpl implements OrderService {
 
         //3. 写入订单
         OrderMaster orderMaster = new OrderMaster();
+        orderDTO.setOrderId(orderId);
         BeanUtils.copyProperties(orderDTO, orderMaster);
-        orderMaster.setOrderId(orderId);
         orderMaster.setOrderAmount(orderAmount);
         orderMaster.setOrderStatus(OrderStatusEnum.NEW.getCode());
         orderMaster.setPayStatus(PayStatusEnum.WAIT.getCode());
@@ -87,7 +85,7 @@ public class OrderServiceImpl implements OrderService {
         //4. 扣减库存
         List<CartDTO> cartDTOList = new ArrayList<>();
         orderDTO.getOrderDetailList().stream()
-                .map(e -> new CartDTO(e.getProductId(), e.getProductQuantity()))
+                .map(e -> cartDTOList.add(new CartDTO(e.getProductId(), e.getProductQuantity())))
                 .collect(Collectors.toList());
         productService.decreaseStock(cartDTOList);
 
@@ -115,19 +113,25 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public PageInfo<OrderDTO> findList(String buyerOpenid, int pageNo, int pageSize) {
-        PageHelper.startPage(pageNo, pageSize);
+    public List<OrderDTO> findList(String buyerOpenid, int pageNo, int pageSize) {
         List<OrderMaster> orderMasterList = orderMasterDao.findByBuyerId(buyerOpenid);
-        System.out.println(orderMasterList);
+        if (CollectionUtils.isEmpty(orderMasterList)) {
+            throw new SellException(ResultEnum.NONE_OPENID_INFO);
+        }
+        //todo 一个用户也可能有多个订单 这里按照就有一个进行处理 后续扩展
 
         /** 将 OrderMaster 的 list 转化为 OrderDTO */
         List<OrderDTO> orderDTOS = orderMasterList.stream().map(e -> {
             OrderDTO orderDTO = new OrderDTO();
             BeanUtils.copyProperties(e, orderDTO);
+            List<OrderDetail> details = orderDetailDao.findListByOrderId(e.getOrderId());
+            if (!CollectionUtils.isEmpty(details)) {
+                orderDTO.setOrderDetailList(details);
+            }
             return orderDTO;
         }).collect(Collectors.toList());
 
-        return new PageInfo<OrderDTO>(orderDTOS);
+        return orderDTOS;
     }
 
     @Override

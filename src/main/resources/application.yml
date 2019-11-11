@@ -1,6 +1,6 @@
 server:
   servlet:
-    context-path: /
+    context-path: /sell
   port: 8080
 
 #logging:
@@ -24,9 +24,8 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
 
 
-
 mybatis:
-  mapper-locations: classpath:mapper/*.xml
+  mapper-locations: classpath:mappers/*.xml
 
 pagehelper:
   helperDialect: mysql

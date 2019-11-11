@@ -2,6 +2,10 @@ package com.anqi.sell.enums;
 
 import lombok.Getter;
 
+/**
+ * @author anqi
+ */
+
 @Getter
 public enum ResultEnum {
     PRODUCT_NOT_EXIST(0, "商品不存在"),
@@ -20,7 +24,11 @@ public enum ResultEnum {
 
     UPDATE_PAY_STATUS_ERROR (8, "支付状态修改错误"),
 
+    CART_ERROR (9, "购物车为空"),
+
     PARAM_ERROR (11, "参数不正确"),
+
+    NONE_OPENID_INFO(12, "此openid无订单记录"),
 
     ;
 

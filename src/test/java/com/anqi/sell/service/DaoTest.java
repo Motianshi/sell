@@ -4,8 +4,13 @@ import com.anqi.sell.dao.OrderDetailDao;
 import com.anqi.sell.dao.OrderMasterDao;
 import com.anqi.sell.dao.ProductCategoryDao;
 import com.anqi.sell.dao.ProductInfoDao;
+import com.anqi.sell.entity.OrderDetail;
+import com.anqi.sell.entity.OrderMaster;
 import com.anqi.sell.entity.ProductCategory;
 import com.anqi.sell.entity.ProductInfo;
+import com.anqi.sell.enums.PayStatusEnum;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mybatis.spring.annotation.MapperScan;
@@ -90,6 +95,24 @@ public class DaoTest {
 
     @Test
     public void testOrderMasterDao(){
+        OrderMaster orderMaster = new OrderMaster();
+        orderMaster.setOrderId("6");
+        orderMaster.setBuyerName("xidada");
+        orderMaster.setBuyerPhone("15503613208");
+        orderMaster.setBuyerOpenid("91");
+        orderMaster.setBuyerAddress("xinzhou");
+        orderMaster.setOrderAmount(new BigDecimal("99"));
+        orderMaster.setPayStatus(PayStatusEnum.SUCCESS.getCode());
+        int i = orderMasterDao.insertSelective(orderMaster);
+        System.out.println(i);
+    }
 
+    @Test
+    public  void testFindList(){
+        PageHelper.startPage(0,1);
+        List<OrderDetail> listByOrderId = orderDetailDao.findListByOrderId("1573394953184");
+        PageInfo<OrderDetail> pageInfo = new PageInfo<>(listByOrderId);
+        List<OrderDetail> list = pageInfo.getList();
+        System.out.println(list);
     }
 }
