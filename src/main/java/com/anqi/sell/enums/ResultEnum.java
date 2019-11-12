@@ -30,6 +30,7 @@ public enum ResultEnum {
 
     NONE_OPENID_INFO(12, "此openid无订单记录"),
 
+    ORDER_OWNER_ERRO(13, "该openid不属于当前用户"),
     ;
 
     private Integer code;

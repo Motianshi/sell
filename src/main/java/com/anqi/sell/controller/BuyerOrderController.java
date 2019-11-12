@@ -7,6 +7,7 @@ import com.anqi.sell.entity.OrderDetail;
 import com.anqi.sell.enums.ResultEnum;
 import com.anqi.sell.exception.SellException;
 import com.anqi.sell.form.OrderForm;
+import com.anqi.sell.service.BuyerService;
 import com.anqi.sell.service.OrderService;
 import com.anqi.sell.utils.ResultVOUtil;
 import com.github.pagehelper.PageHelper;
@@ -33,6 +34,8 @@ public class BuyerOrderController {
     @Autowired
     private OrderService orderService;
 
+    @Autowired
+    private BuyerService buyerService;
 
     @GetMapping("list")
     public ResultVO<List<OrderDTO>> list(@RequestParam("openid")String openid,
@@ -53,8 +56,7 @@ public class BuyerOrderController {
     @GetMapping("detail")
     public ResultVO<OrderDTO> detail(@RequestParam("openid")String openid,
                                      @RequestParam("orderId")String orderId) {
-        //TODO 不安全的做法 需要验证openid 6-13ing
-        OrderDTO orderDTO = orderService.findOne(orderId);
+        OrderDTO orderDTO = buyerService.findOrderOne(openid, orderId);
         return ResultVOUtil.success(orderDTO);
     }
 
@@ -93,8 +95,7 @@ public class BuyerOrderController {
     @PostMapping("cancel")
     public ResultVO cancel(@RequestParam("openid")String openid,
                            @RequestParam("orderId")String orderId){
-        OrderDTO orderDTO = orderService.findOne(orderId);
-        orderService.cancel(orderDTO);
-        return ResultVOUtil.success(orderDTO);
+        buyerService.cancelOrder(openid, orderId);
+        return ResultVOUtil.success();
     }
 }
