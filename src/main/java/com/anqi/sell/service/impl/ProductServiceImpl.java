@@ -41,31 +41,42 @@ public class ProductServiceImpl implements ProductService {
     @Override
     @Transactional
     public void increaseStock(List<CartDTO> cartDTOList) {
-        for (CartDTO cartDTO : cartDTOList) {
-            ProductInfo productInfo = productInfoDao.findById(cartDTO.getProductId());
-            if (null == productInfo) {
-                LOGGER.error("【增加库存】增加库存失败,商品不存在,cartDTO={}",cartDTO);
-                throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
-            }
-            Integer result = productInfo.getProductStock() + cartDTO.getProductQuantity();
-            productInfoDao.updateStock(productInfo.getProductId(), result);
-        }
+        updateStock(cartDTOList,1);
     }
 
     @Override
     @Transactional
     public void decreaseStock(List<CartDTO> cartDTOList) {
+        updateStock(cartDTOList, -1);
+    }
+
+    /**
+     *
+     * @param cartDTOList
+     * @param increase 1 代表增加 -1 代表减少
+     */
+    private void updateStock(List<CartDTO> cartDTOList, int increase) {
         for (CartDTO cartDTO : cartDTOList) {
+            Integer result;
             ProductInfo productInfo = productInfoDao.findById(cartDTO.getProductId());
-            if (null == productInfo) {
-                LOGGER.error("【减少库存】减少库存失败,商品不存在,cartDTO={}",cartDTO);
-                throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
-            }
-            Integer result = productInfo.getProductStock() - cartDTO.getProductQuantity();
-            if (0 > result) {
-                throw new SellException(ResultEnum.PRODUCT_STOCK_ERROR);
+            if (1 == increase) {
+                if (null == productInfo) {
+                    LOGGER.error("【增加库存】增加库存失败,商品不存在,cartDTO={}",cartDTO);
+                    throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
+                }
+                result = productInfo.getProductStock() + cartDTO.getProductQuantity();
+            } else {
+                if (null == productInfo) {
+                    LOGGER.error("【减少库存】减少库存失败,商品不存在,cartDTO={}",cartDTO);
+                    throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
+                }
+                result = productInfo.getProductStock() - cartDTO.getProductQuantity();
+                if (0 > result) {
+                    throw new SellException(ResultEnum.PRODUCT_STOCK_ERROR);
+                }
             }
             productInfoDao.updateStock(productInfo.getProductId(), result);
+
         }
     }
 }
